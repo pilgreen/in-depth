@@ -1,0 +1,253 @@
+/**
+ * KCStar Project Theme
+ * created 2016-11-29
+ */
+
+@space: 40px;
+@width: 720px;
+
+@import (less) "../css/flex-layout.css";
+
+// typograhy
+.slab {
+  font-family: "McClatchy Slab", Georgia, serif;
+}
+
+.sans {
+  font-family: "McClatchy Sans", Helvetica, sans-serif;
+}
+
+.sans-cond {
+  font-family: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.soft {
+  font-weight: normal;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// The in-depth class prevents this code from changing the app
+.in-depth {
+
+  // Mixins
+  #align {
+    box-sizing: border-box;
+    max-width: @width;
+    margin: @space/2 auto;
+
+    &.fill, &[class^="ng_mm_link"] {
+      max-width: 100%;
+    }
+
+    @media (max-width: 769px) {
+      &:not(.fill) {
+        padding-left: @space/2;
+        padding-right: @space/2;
+      }
+    }
+  }
+
+  #aside {
+    float: left;
+    max-width: 400px;
+    margin: @space @space @space 5%;
+
+    &.right {
+      float: right;
+      margin: @space 5% @space @space;
+    }
+
+    > * {
+      margin: 0;
+    }
+
+    @media (min-width: 1200px) {
+      margin-left: 15%;
+
+      &.right {
+        margin-right: 15%;
+      }
+    }
+
+    @media (max-width: 769px) {
+      margin-left: 0;
+
+      &.right {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      float: none !important;
+      margin: @space auto !important;
+      max-width: 100%;
+    }
+  }
+
+  // Standard elements
+  aside {
+    #aside;
+  }
+
+  figure {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    figcaption {
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 18px;
+      max-width: 900px;
+    }
+
+    &.fill figcaption {
+      padding: 0 @space/2;
+    }
+  }
+
+  blockquote {
+    padding: 0;
+    border: none;
+    font-size: 1.75em;
+    font-weight: normal;
+    font-family: "McClatchy Slab", Georgia, serif;
+    line-height: 1.15em;
+    color: #999;
+
+    small {
+      display: block;
+      text-align: right;
+      font-size: 15px;
+
+      &::before {
+        content: '\2014 \00A0';
+      }
+    }
+  }
+
+  q {
+    font-weight: normal;
+    font-family: "McClatchy Slab", Georgia, serif;
+    line-height: 1.15em;
+    color: #999;
+
+    &::before {
+      font-size: 2.5em;
+      vertical-align: -0.35em;
+    }
+  }
+
+  hr {
+    display: block;
+    margin: @space auto;
+    max-width: 320px;
+    border-color: #212121;
+    border-style: solid;
+    clear: both;
+  }
+
+  // MI story body
+  [id*="content-body-"] {
+    font-size: 20px;
+    transition: opacity 0.3s;
+
+    > * {
+      #align;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    > aside {
+      #aside;
+    }
+
+    .byline {
+      font-size: 15px;
+      font-family: "McClatchy Slab", Georgia, serif;
+      text-transform: uppercase;
+
+      a {
+        display: block;
+        font-style: italic;
+        text-transform: lowercase;
+      }
+    }
+
+    .fill:first-child, [class^="ng_mm_link"]:first-child {
+      margin-top: 0;
+    }
+
+    blockquote {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  // MI embeds
+  [class^="ng_mm_link"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    > div {
+      > * {
+        #align;
+      }
+
+      > aside {
+        #aside;
+      }
+    }
+  }
+
+  // Resets bootstrap
+  #masthead-container {
+    margin-bottom: 0 !important;
+  }
+
+  #leaderboard-ad {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container[role=main] {
+    width: 100% !important;
+    padding: 0 !important;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    .row {
+      margin: 0;
+    }
+
+    [class*="col-"] {
+      padding: 0 !important;
+    }
+  }
+}
