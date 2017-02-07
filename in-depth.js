@@ -1,3 +1,34 @@
+/**
+ * Appends basic styles to broken page
+ * MI should incorporate these into the style sheets
+ */
+
+function loadBasicStyleFixes() {
+  var sheet = document.styleSheets[0];
+  sheet.insertRule('[id^="content-body"] { width: 760px; max-width: 100%; margin: 0 auto; }')
+  sheet.insertRule('figure, blockquote { margin: 2rem 0 !important; }');
+  sheet.insertRule('figure img { max-width: 100%; }');
+  sheet.insertRule('blockquote { font-size: 2em; }');
+}
+
+/**
+ * Run a feature detection for ES6 class
+ * and apply the basic styles if it fails
+ */
+
+try {
+  'use-strict';
+  class ES6ClassFeatureTest {};
+} catch(e) {
+  loadBasicStyleFixes();
+}
+
+/**
+ * The InDepth class needs to be in the global scope in order
+ * to use it in external widgets. If the ES6 feature detection fails, 
+ * I'm letting the whole thing blow here up on purpose.
+ */
+
 class InDepth {
 
   /**
@@ -52,12 +83,7 @@ class InDepth {
   static createAutoInstance() {
     let _script = document.currentScript;
     let config = {
-      css: _script.src.replace('js', 'css'),
-      webcomponents: false
-    }
-
-    if(_script.hasAttribute('webcomponents')) {
-      config.webcomponents = _script.src.replace('in-depth.js', 'webcomponents.js');
+      css: _script.src.replace('in-depth.js', 'in-depth.css')
     }
 
     this.instance = new InDepth(config);
@@ -81,11 +107,8 @@ class InDepth {
       this.loadCSS(opt.css).then(e => {
         this.body.style.setProperty('opacity', 1);
       });
-
-      if(opt.webcomponents) {
-        this.loadJS(opt.webcomponents);
-      }
     } else {
+      loadBasicStyleFixes();
       let e = new Event('in-depth-app');
       window.dispatchEvent(e);
     }

@@ -154,6 +154,7 @@
   text-align: left;
 }
 .in-depth #align {
+  display: block;
   box-sizing: border-box;
   max-width: 720px;
   margin: 20px auto;
@@ -291,6 +292,7 @@
   transition: opacity 0.3s;
 }
 .in-depth [id*="content-body-"] > * {
+  display: block;
   box-sizing: border-box;
   max-width: 720px;
   margin: 20px auto;
@@ -366,6 +368,7 @@
   padding-right: 0 !important;
 }
 .in-depth [class^="ng_mm_link"] > div > * {
+  display: block;
   box-sizing: border-box;
   max-width: 720px;
   margin: 20px auto;
