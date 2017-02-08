@@ -255,11 +255,14 @@
 .in-depth blockquote {
   padding: 0;
   border: none;
-  font-size: 1.75em;
+  font-size: 1.6em;
   font-weight: normal;
   font-family: "McClatchy Slab", Georgia, serif;
   line-height: 1.15em;
   color: #999;
+}
+.in-depth blockquote q {
+  display: block;
 }
 .in-depth blockquote small {
   display: block;
@@ -357,7 +360,7 @@
 }
 .in-depth [id*="content-body-"] .fill:first-child,
 .in-depth [id*="content-body-"] [class^="ng_mm_link"]:first-child {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 .in-depth [id*="content-body-"] blockquote {
   max-width: 500px;

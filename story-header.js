@@ -1,7 +1,10 @@
 class StoryHeader extends HTMLElement {
   constructor() {
     super();
-    if(window.ShadyCSS) ShadyCSS.prepareTemplate(this.template, 'story-header');
+
+    if(window.ShadyCSS) {
+      ShadyCSS.prepareTemplate(this.template, 'story-header');
+    }
   }
 
   get template() {

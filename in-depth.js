@@ -1,34 +1,3 @@
-/**
- * Appends basic styles to broken page
- * MI should incorporate these into the style sheets
- */
-
-function loadBasicStyleFixes() {
-  var sheet = document.styleSheets[0];
-  sheet.insertRule('[id^="content-body"] { width: 760px; max-width: 100%; margin: 0 auto; }')
-  sheet.insertRule('figure, blockquote { margin: 2rem 0 !important; }');
-  sheet.insertRule('figure img { max-width: 100%; }');
-  sheet.insertRule('blockquote { font-size: 2em; }');
-}
-
-/**
- * Run a feature detection for ES6 class
- * and apply the basic styles if it fails
- */
-
-try {
-  'use-strict';
-  class ES6ClassFeatureTest {};
-} catch(e) {
-  loadBasicStyleFixes();
-}
-
-/**
- * The InDepth class needs to be in the global scope in order
- * to use it in external widgets. If the ES6 feature detection fails, 
- * I'm letting the whole thing blow here up on purpose.
- */
-
 class InDepth {
 
   /**
@@ -51,7 +20,7 @@ class InDepth {
       let link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = url;
-      link.onload = e => { resolve(e); };
+      link.onload = e => { resolve(e) };
       document.head.appendChild(link);
     });
   }
@@ -63,27 +32,32 @@ class InDepth {
    */
 
   static loadJS(url) {
+    let purl = url.match(/^http(s):/) ? url : `${this.baseURL}/${url}.js`;
     return new Promise((resolve, reject) => {
       let script = document.createElement('script');
-      script.src = url;
-      script.async = true;
-      script.onload = e => { resolve(e); };
+      script.src = purl;
+      script.onload = e => { resolve(e) };
       document.head.appendChild(script);
     });
   }
 
   /**
-   * Creates an instance using currentScript
-   * and appends it to the class Object.
-   *
-   * Note: This only works with the auto attribute
-   * set on the script tag.
+   * Creates an instance with default styles
    */
 
-  static createAutoInstance() {
-    let _script = document.currentScript;
+  static createInstance() {
     let config = {
-      css: _script.src.replace('in-depth.js', 'in-depth.css')
+      css: [`${this.baseURL}/in-depth.css`],
+      modules: []
+    };
+
+    let modules = this.element.dataset.modules;
+    if(modules) {
+      try {
+        config.modules = JSON.parse(modules);
+      } catch(e) {
+        config.scripts.push(modules);
+      }
     }
 
     this.instance = new InDepth(config);
@@ -104,14 +78,28 @@ class InDepth {
       document.body.classList.add('in-depth');
       this.body.style.setProperty('opacity', 0);
 
-      this.loadCSS(opt.css).then(e => {
-        this.body.style.setProperty('opacity', 1);
-      });
+      for(let i = 0, len = opt.css.length; i < len; i++) {
+        this.loadCSS(opt.css[i]).then(e => {
+          this.body.style.setProperty('opacity', 1);
+        });
+      }
+
+      for(let i = 0, len = opt.modules.length; i < len; i++) {
+        this.loadJS(opt.modules[i]);
+      }
     } else {
-      loadBasicStyleFixes();
-      let e = new Event('in-depth-app');
+      let e = new Event('app-detected');
       window.dispatchEvent(e);
     }
+  }
+
+  /**
+   * Gets the baseURL set when the script loads
+   * @return {String} the url
+   */
+
+  get baseURL() {
+    return this.constructor.baseURL;
   }
 
   /**
@@ -140,7 +128,11 @@ class InDepth {
   }
 }
 
+// Set the Base URL for linking assets
+InDepth.element = document.currentScript;
+InDepth.baseURL = InDepth.element.src.replace(/\/in-depth.js$/, '');
+
 // Shortcut to auto-load
-if(document.currentScript.hasAttribute('auto')) {
-  InDepth.createAutoInstance();
+if(InDepth.element.hasAttribute('auto')) {
+  InDepth.createInstance();
 }

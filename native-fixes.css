@@ -1,0 +1,21 @@
+[id^="content-body"] > * {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+figure, blockquote {
+  margin: 2rem 0 !important;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+}
+
+figcaption {
+  margin-top: 4px;
+}
+
+blockquote {
+  font-size: 2em;
+}
