@@ -56,7 +56,7 @@ class InDepth {
       try {
         config.modules = JSON.parse(modules);
       } catch(e) {
-        config.scripts.push(modules);
+        config.modules.push(modules);
       }
     }
 
