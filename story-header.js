@@ -35,10 +35,7 @@ class StoryHeader extends HTMLElement {
         }
       </style>
 
-      <slot name="headline"></slot>
-
-      <div class="pubdate">${this.pubdate}</div>
-      <slot name="byline"></slot>
+      <slot></slot>
 
       <div class="social-media">
         <a href="${this.facebook.url}"><img src="${this.facebook.icon}"></a>
@@ -61,14 +58,6 @@ class StoryHeader extends HTMLElement {
       icon: 'http://media.kansascity.com/livegraphics/social/twitter.png',
       url: `https://twitter.com/share?url=${encodeURIComponent(window.location.href)}`
     }
-  }
-
-  get pubdate() {
-    if(mistats.pubdate) {
-      let d = new Date(mistats.pubdate);
-      return d.toLocaleDateString('en-us', { month: 'long', day: 'numeric', year: 'numeric' });
-    }
-    return '';
   }
 
   connectedCallback() {

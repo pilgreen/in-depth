@@ -1,10 +1,6 @@
 [id^="content-body"] > * {
   max-width: 760px;
-  margin: 0 auto;
-}
-
-figure, blockquote {
-  margin: 2rem 0 !important;
+  margin: 20px auto;
 }
 
 figure img {
@@ -18,4 +14,8 @@ figcaption {
 
 blockquote {
   font-size: 2em;
+}
+
+story-header {
+  display: block;
 }

@@ -6,7 +6,7 @@ class InDepth {
    */
   
   static get app() {
-    return window.location.href.match(/^file/) ? true : false;
+    return window.location.href.match(/Reader.App$/) ? true : false;
   }
 
   /**
