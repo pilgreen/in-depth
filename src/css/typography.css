@@ -1,0 +1,43 @@
+/**
+ * Typography helper classes
+ */
+
+.slab {
+  font-family: "McClatchy Slab", Georgia, serif;
+}
+
+.sans {
+  font-family: "McClatchy Sans", Helvetica, sans-serif;
+}
+
+.sans-cond {
+  font-family: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif;
+}
+
+.mono {
+  font-family: monospace;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.soft {
+  font-weight: normal;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}

@@ -7,49 +7,39 @@
 @width: 720px;
 
 @import (less) "../css/flex-layout.css";
+@import (less) "../css/typography.css";
 
-// typograhy
-.slab {
-  font-family: "McClatchy Slab", Georgia, serif;
+// Native fixes 
+// MI could implement this globally.
+
+[id^="content-body"] > * {
+  max-width: 760px;
+  margin: 20px auto;
 }
 
-.sans {
-  font-family: "McClatchy Sans", Helvetica, sans-serif;
+figure img {
+  display: block;
+  max-width: 100%;
 }
 
-.sans-cond {
-  font-family: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif;
+figcaption {
+  margin-top: 4px;
 }
 
-.mono {
-  font-family: monospace;
+blockquote {
+  font-size: 2em;
 }
 
-.uppercase {
-  text-transform: uppercase;
+story-header {
+  display: block;
 }
 
-.italic {
-  font-style: italic;
-}
+// In-Depth styles
+// The in-depth class is appended to the body by instantiating the
+// InDepth class in Javascript. You can do this manually or by adding
+// the `auto` boolean attribute to the script file. You can also add
+// the in-depth class if you like to any element.
 
-.soft {
-  font-weight: normal;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-// The in-depth class prevents this code from changing the app
 .in-depth {
 
   // Mixins

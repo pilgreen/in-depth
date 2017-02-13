@@ -27,12 +27,6 @@ class StoryHeader extends HTMLElement {
           display: inline-block;
           padding-right: 6px;
         }
-
-        .pubdate {
-          margin: 0.25em 0;
-          font-size: 14px;
-          color: #999;
-        }
       </style>
 
       <slot></slot>

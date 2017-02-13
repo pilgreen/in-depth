@@ -10,44 +10,28 @@ class InDepth {
   }
 
   /**
-   * Loads a css file
-   * @param {string} url
-   * @return {Promise} resolves onload event
-   */
-
-  static loadCSS(url) { 
-    return new Promise((resolve, reject) => {
-      let link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = url;
-      link.onload = e => { resolve(e) };
-      document.head.appendChild(link);
-    });
-  }
-
-  /**
    * Loads a javascript fle
    * @param {string} url
    * @return {Promise} resolves onload event
    */
 
   static loadJS(url) {
-    let purl = url.match(/^http(s):/) ? url : `${this.baseURL}/${url}.js`;
+    let purl = url.match(/^http(s):/) ? url : `${this.baseURL}/components/${url}.js`;
     return new Promise((resolve, reject) => {
       let script = document.createElement('script');
       script.src = purl;
+      script.async = false;
       script.onload = e => { resolve(e) };
       document.head.appendChild(script);
     });
   }
 
   /**
-   * Creates an instance with default styles
+   * Creates an instance based on the <script> tag attributes 
    */
 
   static createInstance() {
     let config = {
-      css: [`${this.baseURL}/in-depth.css`],
       modules: []
     };
 
@@ -69,20 +53,8 @@ class InDepth {
    */
 
   constructor(opt) {
-    if(typeof opt != 'object') {
-      console.warn('InDepth: no configuration.');
-      return false;
-    }
-
     if(!this.constructor.app) {
       document.body.classList.add('in-depth');
-      this.body.style.setProperty('opacity', 0);
-
-      for(let i = 0, len = opt.css.length; i < len; i++) {
-        this.loadCSS(opt.css[i]).then(e => {
-          this.body.style.setProperty('opacity', 1);
-        });
-      }
 
       for(let i = 0, len = opt.modules.length; i < len; i++) {
         this.loadJS(opt.modules[i]);
@@ -109,14 +81,6 @@ class InDepth {
 
   get body() {
     return document.querySelector('[id*="content-body-"]');
-  }
-
-  /**
-   * Passes through to static loadCSS()
-   */
-
-  loadCSS(url) {
-    return this.constructor.loadCSS(url)
   }
 
   /**
