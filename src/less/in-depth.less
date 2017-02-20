@@ -1,7 +1,6 @@
-/**
- * KCStar Project Theme
- * created 2016-11-29
- */
+//
+// KCStar Project Theme
+//
 
 @space: 40px;
 @width: 720px;
@@ -9,256 +8,214 @@
 @import (less) "../css/flex-layout.css";
 @import (less) "../css/typography.css";
 
-// Native fixes 
-// MI could implement this globally.
+// Mixins
+.align() {
+  box-sizing: border-box;
+  max-width: @width;
+  margin: @space/2 auto;
 
-[id^="content-body"] > * {
-  max-width: 760px;
-  margin: 20px auto;
-}
-
-figure img {
-  display: block;
-  max-width: 100%;
-}
-
-figcaption {
-  margin-top: 4px;
-}
-
-blockquote {
-  font-size: 2em;
-}
-
-story-header {
-  display: block;
-}
-
-// In-Depth styles
-// The in-depth class is appended to the body by instantiating the
-// InDepth class in Javascript. You can do this manually or by adding
-// the `auto` boolean attribute to the script file. You can also add
-// the in-depth class if you like to any element.
-
-.in-depth {
-
-  // Mixins
-  #align {
-    box-sizing: border-box;
-    max-width: @width;
-    margin: @space/2 auto;
-
-    &.fill, &[class^="ng_mm_link"] {
-      max-width: 100%;
-    }
-
-    &[hidden] {
-      display: none;
-    }
-
-    @media (max-width: 769px) {
-      &:not(.fill) {
-        padding-left: @space/2;
-        padding-right: @space/2;
-      }
-    }
+  &.fill, &[class^="ng_mm_link"] {
+    max-width: 100%;
   }
 
-  #aside {
+  &[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 769px) {
+    &:not(.fill) {
+      padding-left: @space/2;
+      padding-right: @space/2;
+    }
+  }
+}
+
+.aside() {
+  max-width: 100%;
+  
+  > * {
+    margin: 0;
+  }
+
+  @media (min-width: 1200px) {
     float: left;
     max-width: 400px;
-    margin: @space @space @space 5%;
+    margin: @space @space @space 15%;
 
     &.right {
       float: right;
-      margin: @space 5% @space @space;
-    }
-
-    > * {
-      margin: 0;
-    }
-
-    @media (min-width: 1200px) {
-      margin-left: 15%;
-
-      &.right {
-        margin-right: 15%;
-      }
-    }
-
-    @media (max-width: 769px) {
-      margin-left: 0;
-
-      &.right {
-        margin-right: 0;
-      }
-    }
-
-    @media (max-width: 700px) {
-      float: none !important;
-      margin: @space auto !important;
-      max-width: 100%;
+      margin: @space 15% @space @space;
     }
   }
+}
 
-  // Standard elements
-  aside {
-    #aside;
+.caption() {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 900px;
+  font-family: 'McClatchy Sans',Arial,'Helvetica Neue',Helvetica,sans-serif !important;
+}
+
+
+// Standard elements
+aside {
+  .aside;
+}
+
+figure {
+  line-height: 0;
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 
-  figure {
-    line-height: 0;
+  figcaption {
+    .caption;
+  }
 
-    img {
+  &.fill figcaption {
+    padding: 0 @space/2;
+  }
+}
+
+blockquote {
+  padding: 0;
+  border: none;
+  font-size: 1.6em;
+  font-weight: normal;
+  font-family: "McClatchy Slab", Georgia, serif;
+  line-height: 1.15em;
+  color: #999;
+
+  q {
+    display: block;
+  }
+
+  small {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    margin: 1rem 1rem 0 0;
+
+    &::before {
+      content: '\2014 \00A0';
+    }
+  }
+}
+
+q {
+  font-weight: normal;
+  font-family: "McClatchy Slab", Georgia, serif;
+  line-height: 1.25em;
+  color: #999;
+
+  &::before {
+    font-size: 2.5em;
+    position: relative;
+    top: 0.3em;
+  }
+}
+
+hr {
+  display: block;
+  margin: @space auto;
+  max-width: 320px;
+  border-color: #212121;
+  border-style: solid;
+  clear: both;
+}
+
+// Content body overhaul
+[id*="content-body-"] {
+  font-size: 20px;
+  // line-height: 0;
+
+  > * {
+    .align;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  > aside {
+    .aside;
+  }
+
+  address {
+    font-size: 15px;
+    font-family: "McClatchy Slab", Georgia, serif;
+    text-transform: uppercase;
+
+    a {
       display: block;
-      max-width: 100%;
+      font-style: italic;
+      text-transform: lowercase;
     }
+  }
 
-    figcaption {
-      margin: 5px 0;
-      font-size: 14px;
-      line-height: 18px;
-      max-width: 900px;
-    }
-
-    &.fill figcaption {
-      padding: 0 @space/2;
-    }
+  .fill:first-child, [class^="ng_mm_link"]:first-child {
+    margin-top: 0 !important;
   }
 
   blockquote {
-    padding: 0;
-    border: none;
-    font-size: 1.6em;
-    font-weight: normal;
-    font-family: "McClatchy Slab", Georgia, serif;
-    line-height: 1.15em;
-    color: #999;
-
-    q {
-      display: block;
-    }
-
-    small {
-      display: block;
-      text-align: right;
-      font-size: 15px;
-      margin: 1rem 1rem 0 0;
-
-      &::before {
-        content: '\2014 \00A0';
-      }
-    }
+    max-width: 550px;
+    margin: 0 auto;
   }
+}
 
-  q {
-    font-weight: normal;
-    font-family: "McClatchy Slab", Georgia, serif;
-    line-height: 1.25em;
-    color: #999;
+// Embed overhaul
+[class^="ng_mm_link"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
-    &::before {
-      font-size: 2.5em;
-      position: relative;
-      top: 0.3em;
-    }
-  }
-
-  hr {
-    display: block;
-    margin: @space auto;
-    max-width: 320px;
-    border-color: #212121;
-    border-style: solid;
-    clear: both;
-  }
-
-  // MI story body
-  [id*="content-body-"] {
-    font-size: 20px;
-    transition: opacity 0.3s;
-
+  > div {
     > * {
-      #align;
-    }
-
-    p {
-      font-size: 1em;
+      .align;
     }
 
     > aside {
-      #aside;
-    }
-
-    address {
-      font-size: 15px;
-      font-family: "McClatchy Slab", Georgia, serif;
-      text-transform: uppercase;
-
-      a {
-        display: block;
-        font-style: italic;
-        text-transform: lowercase;
-      }
-    }
-
-    .fill:first-child, [class^="ng_mm_link"]:first-child {
-      margin-top: 0 !important;
-    }
-
-    blockquote {
-      max-width: 500px;
-      margin: 0 auto;
+      .aside;
     }
   }
+}
 
-  // MI embeds
-  [class^="ng_mm_link"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+// Embedded videos
+.embed-video {
+  margin-bottom: 0;
 
-    > div {
-      > * {
-        #align;
-      }
-
-      > aside {
-        #aside;
-      }
-    }
+  .summary {
+    .caption
   }
 
-  // Resets bootstrap
-  #masthead-container {
-    margin-bottom: 0 !important;
+  .title {
+    display: none;
   }
+}
 
-  #leaderboard-ad {
+// Bootstrap overload
+#masthead-container {
+  margin-bottom: 0 !important;
+}
+
+#leaderboard-ad {
+  margin: 0;
+  padding: 0;
+}
+
+.container[role=main] {
+  width: 100% !important;
+  padding: 0 !important;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .row {
     margin: 0;
-    padding: 0;
   }
 
-  .container[role=main] {
-    width: 100% !important;
+  [class*="col-"] {
     padding: 0 !important;
-    max-width: 1600px;
-    margin: 0 auto;
-
-    .row {
-      margin: 0;
-    }
-
-    [class*="col-"] {
-      padding: 0 !important;
-    }
-  }
-
-  // Embedded Videos
-  .embed-video .summary {
-    margin: 5px 0;
-    font-size: 14px;
-    line-height: 18px;
-    max-width: 900px;
-    font-family: 'McClatchy Sans',Arial,'Helvetica Neue',Helvetica,sans-serif !important;
   }
 }

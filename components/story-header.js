@@ -15,10 +15,6 @@ class StoryHeader extends HTMLElement {
           display: block;
         }
         
-        ::slotted(h1) {
-          text-align: center;
-        }
-
         .social-media {
           margin: 2rem 0 1rem;
         }
@@ -55,7 +51,7 @@ class StoryHeader extends HTMLElement {
   }
 
   connectedCallback() {
-    if(InDepth.app) {
+    if(InDepth && InDepth.app) {
       this.style.display = 'none';
     } else {
       let sr = this.attachShadow({ mode: 'open' });

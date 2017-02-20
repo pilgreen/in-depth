@@ -6,7 +6,7 @@ class InDepth {
    */
   
   static get app() {
-    return window.location.href.match(/Reader.App$/) ? true : false;
+    return window.location.href.match(/^file/) ? true : false;
   }
 
   /**
@@ -16,10 +16,9 @@ class InDepth {
    */
 
   static loadJS(url) {
-    let purl = url.match(/^http(s):/) ? url : `${this.baseURL}/components/${url}.js`;
     return new Promise((resolve, reject) => {
       let script = document.createElement('script');
-      script.src = purl;
+      script.src = url;
       script.async = false;
       script.onload = e => { resolve(e) };
       document.head.appendChild(script);
@@ -27,39 +26,11 @@ class InDepth {
   }
 
   /**
-   * Creates an instance based on the <script> tag attributes 
+   * Instantiates the class and fires an event if in the app. 
    */
 
-  static createInstance() {
-    let config = {
-      modules: []
-    };
-
-    let modules = this.element.dataset.modules;
-    if(modules) {
-      try {
-        config.modules = JSON.parse(modules);
-      } catch(e) {
-        config.modules.push(modules);
-      }
-    }
-
-    this.instance = new InDepth(config);
-  }
-
-  /**
-   * Create an inDepth look
-   * @param {object} opt - a configuration
-   */
-
-  constructor(opt) {
-    if(!this.constructor.app) {
-      document.body.classList.add('in-depth');
-
-      for(let i = 0, len = opt.modules.length; i < len; i++) {
-        this.loadJS(opt.modules[i]);
-      }
-    } else {
+  constructor() {
+    if(this.constructor.app) {
       let e = new Event('app-detected');
       window.dispatchEvent(e);
     }
@@ -87,8 +58,9 @@ class InDepth {
    * Passes through to static loadJS()
    */
 
-  loadJS(url) {
-    return this.constructor.loadJS(url)
+  loadModule(url) {
+    let purl = url.match(/^http(s):/) ? url : `${this.baseURL}/components/${url}.js`;
+    return this.constructor.loadJS(purl)
   }
 }
 
@@ -98,5 +70,5 @@ InDepth.baseURL = InDepth.element.src.replace(/\/in-depth.js$/, '');
 
 // Shortcut to auto-load
 if(InDepth.element.hasAttribute('auto')) {
-  InDepth.createInstance();
+  InDepth.instance = new InDepth();
 }
