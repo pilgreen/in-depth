@@ -1,0 +1,50 @@
+$font-sans: "McClatchy Sans", Helvetica, sans-serif !default;
+
+@mixin align($max: 720px, $space: 20px) {
+  box-sizing: border-box;
+  max-width: $max;
+  margin: $space auto;
+
+  &.fill, &[class^="ng_mm_link"] {
+    max-width: 100%;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 769px) {
+    &:not(.fill) {
+      padding-left: $space;
+      padding-right: $space;
+    }
+  }
+}
+
+@mixin aside($max: 720px, $rail: 400px, $space: 20px) {
+  display: block;
+  max-width: $max;
+
+  > * {
+    margin: 0;
+  }
+
+  @media (min-width: 1200px) {
+    float: left;
+    max-width: $rail;
+    margin: $space $space $space 15%;
+
+    &.right {
+      float: right;
+      margin: $space 15% $space $space;
+    }
+  }
+}
+
+@mixin caption() {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 900px;
+  font-family: $font-sans !important;
+}

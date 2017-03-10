@@ -1,0 +1,93 @@
+$font-slab: "McClatchy Slab", Georgia, serif !default;
+
+// Content body overhaul
+[id*="content-body-"] {
+  font-size: 20px;
+
+  > * {
+    @include align;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  > aside {
+    @include aside;
+  }
+
+  address {
+    font-size: 15px;
+    font-family: $font-slab;
+    text-transform: uppercase;
+
+    a {
+      display: block;
+      font-style: italic;
+      text-transform: lowercase;
+    }
+  }
+
+  .fill:first-child, [class^="ng_mm_link"]:first-child {
+    margin-top: 0 !important;
+  }
+
+  blockquote {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+}
+
+// Embed overhaul
+[class^="ng_mm_link"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  > div {
+    > * {
+      @include align;;
+    }
+
+    > aside {
+      @include aside;
+    }
+  }
+}
+
+// Embedded videos
+.embed-video {
+  margin-bottom: 0;
+
+  .summary {
+    @include caption;
+  }
+
+  .title {
+    display: none;
+  }
+}
+
+// Bootstrap overload
+#masthead-container {
+  margin-bottom: 0 !important;
+}
+
+#leaderboard-ad {
+  margin: 0;
+  padding: 0;
+}
+
+.container[role=main] {
+  width: 100% !important;
+  padding: 0 !important;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  .row {
+    margin: 0;
+  }
+
+  [class*="col-"] {
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,55 @@
+thumbnail-stack {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+
+  + thumbnail-stack {
+    border-top: 1px solid #ddd;
+  }
+
+  figure {
+    position: relative;
+    width: 180px;
+    max-height: 180px;
+    margin-right: 1rem;
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  :nth-child(2) {
+    -webkit-flex: 1;
+    flex: 1;
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  @media (max-width: 769px) {
+    display: block;
+
+    figure {
+      width: 100%;
+      max-height: initial;
+      margin: 0 0 8px 0;
+
+      img {
+        position: relative;
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

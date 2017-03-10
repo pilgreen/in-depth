@@ -1,17 +1,17 @@
-/**
- * Typography helper classes
- */
+$font-slab: "McClatchy Slab", Georgia, serif !default;
+$font-sans: "McClatchy Sans", Helvetica, sans-serif !default;
+$font-cond: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif !default;
 
 .slab {
-  font-family: "McClatchy Slab", Georgia, serif;
+  font-family: $font-slab;
 }
 
 .sans {
-  font-family: "McClatchy Sans", Helvetica, sans-serif;
+  font-family: $font-sans;
 }
 
 .sans-cond {
-  font-family: "McClatchy Sans Cond", "Helvetica Condensed", sans-serif;
+  font-family: $font-cond;
 }
 
 .mono {
