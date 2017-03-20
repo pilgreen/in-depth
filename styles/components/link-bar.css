@@ -7,26 +7,20 @@
   color: inherit;
   text-decoration: none;
   padding: 0 !important;
-  margin-bottom: 20px;
-
-  figure {
+  margin-bottom: 20px; }
+  .link-bar figure {
     position: relative;
     width: 90px;
-    margin: 0;
-
-    img {
+    margin: 0; }
+    .link-bar figure img {
       position: absolute;
       height: 100%;
       width: 100%;
-      object-fit: cover;
-    }
-
+      object-fit: cover; }
     @media (max-width: 500px) {
-      display: none;
-    }
-  }
-
-  > :not(figure) {
+      .link-bar figure {
+        display: none; } }
+  .link-bar > :not(figure) {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -36,30 +30,21 @@
     -webkit-flex: 1;
     flex: 1;
     padding: 4px 12px;
-    box-sizing: border-box;
-
-    > * {
+    box-sizing: border-box; }
+    .link-bar > :not(figure) > * {
       display: block;
-      margin: 2px 0;
-    }
-
-    strong {
+      margin: 2px 0; }
+    .link-bar > :not(figure) strong {
       font-size: 28px;
       font-weight: normal;
       font-family: "McClatchySlab", "McClatchy Slab", Georgia, serif;
       line-height: 1em;
-      margin-top: 8px;
-    }
-
-    span {
+      margin-top: 8px; }
+    .link-bar > :not(figure) span {
       font-size: 13px;
-      font-family: "McClatchySans", "McClatchy Sans", Helvetica, sans-serif;
-    }
-
+      font-family: "McClatchySans", "McClatchy Sans", Helvetica, sans-serif; }
     @media (max-width: 769px) {
-      strong {
-        font-size: 19px;
-      }
-    }
-  }
-}
+      .link-bar > :not(figure) strong {
+        font-size: 19px; } }
+
+/*# sourceMappingURL=link-bar.css.map */

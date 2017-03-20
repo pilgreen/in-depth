@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,YAAa,CACX,OAAO,CAAE,KAAK,CAEd,eAAG,CACD,SAAS,CAAE,KAAK",
-"sources": ["../../scss/components/story-header.scss"],
-"names": [],
-"file": "story-header.css"
-}
