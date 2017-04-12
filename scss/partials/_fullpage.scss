@@ -55,8 +55,8 @@ $font-slab: "McClatchy Slab", Georgia, serif !default;
 }
 
 // Embedded videos
-.embed-video {
-  margin-bottom: 0;
+.embed-media.inline-video {
+  margin: 20px auto !important;
 
   .summary {
     @include caption;

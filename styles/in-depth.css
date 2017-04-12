@@ -248,15 +248,15 @@ hr {
           float: right;
           margin: 20px 15% 20px 20px; } }
 
-.embed-video {
-  margin-bottom: 0; }
-  .embed-video .summary {
+.embed-media.inline-video {
+  margin: 20px auto !important; }
+  .embed-media.inline-video .summary {
     margin: 5px 0;
     font-size: 14px;
     line-height: 18px;
     max-width: 900px;
     font-family: "McClatchy Sans", Helvetica, sans-serif !important; }
-  .embed-video .title {
+  .embed-media.inline-video .title {
     display: none; }
 
 #masthead-container {
