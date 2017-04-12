@@ -67,6 +67,18 @@ $font-slab: "McClatchy Slab", Georgia, serif !default;
   }
 }
 
+// New draggable photos
+.photo-inline-square {
+  .img-container {
+    margin: 0 !important;
+    float: none !important;
+  }
+
+  .inline-caption {
+    border-bottom: none !important;
+  }
+}
+
 // Bootstrap overload
 #masthead-container {
   margin-bottom: 0 !important;

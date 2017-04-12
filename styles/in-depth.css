@@ -259,6 +259,12 @@ hr {
   .embed-media.inline-video .title {
     display: none; }
 
+.photo-inline-square .img-container {
+  margin: 0 !important;
+  float: none !important; }
+.photo-inline-square .inline-caption {
+  border-bottom: none !important; }
+
 #masthead-container {
   margin-bottom: 0 !important; }
 
