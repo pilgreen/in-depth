@@ -1,0 +1,9 @@
+baseURL = "http://pilgreen.github.io/in-depth/"
+languageCode = "en-us"
+title = "KCStar In-Depth project"
+
+relativeURLs = true
+disableRSS = true
+disableSitemap = true
+
+publishDir = "../../docs"

@@ -1,4 +1,4 @@
 .PHONY: styles
 
 styles:
-	scss --update scss:styles --style compressed
+	scss --update src/scss:styles --style compressed
