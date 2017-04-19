@@ -1,0 +1,53 @@
++++
+date = "2017-04-17T14:45:33-05:00"
+title = "figure"
+summary = "A single image."
++++
+
+<form>
+  <label>Image URL</label>
+  <input type="text" name="image" value="http://nerdist.com/wp-content/uploads/2015/10/ChristopherWalken_Feature_10192015-970x545.jpg">
+
+  <label>Caption</label>
+  <textarea name="content" rows="6">This is a test.</textarea>
+</form>
+
+<div class="pad vertical center layout">
+  <button>Generate code</button>
+</div>
+
+<div id="generated" hidden>
+  <div id="preview"></div>
+  <label>Copy this code</label>
+  <textarea id="code" rows="4"></textarea>
+</div>
+
+<template><figure>
+  <img></img>
+  <figcaption></figcaption>
+</figure></template>
+
+<script>
+  var t = document.querySelector("template");
+  var src = document.querySelector("input[name=image]");
+  var caption = document.querySelector("textarea[name=content]");
+  var button = document.querySelector("button");
+  var generated = document.querySelector("#generated");
+  var preview = document.querySelector("#preview");
+  var code = document.querySelector("#code");
+
+  function _handleClick(e) {
+    t.content.querySelector("img").setAttribute("src", src.value);
+    t.content.querySelector("figcaption").textContent = caption.value;
+    preview.innerHTML = t.innerHTML;
+    code.value = t.innerHTML;
+    generated.removeAttribute("hidden");
+  }
+
+  function _handleFocus(e) {
+    code.select();
+  }
+
+  button.addEventListener("click", _handleClick);
+  code.addEventListener("focus", _handleFocus);
+</script>

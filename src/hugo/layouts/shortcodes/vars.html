@@ -1,0 +1,18 @@
+var t = document.querySelector("template");
+var button = document.querySelector("button");
+var generated = document.querySelector("#generated");
+var preview = document.querySelector("#preview");
+var code = document.querySelector("#code");
+
+function _handleFocus(e) {
+  code.select();
+}
+
+function getCode() {
+  preview.innerHTML = t.innerHTML;
+  code.value = t.innerHTML;
+  generated.removeAttribute("hidden");
+}
+
+button.addEventListener("click", _handleClick);
+code.addEventListener("focus", _handleFocus);

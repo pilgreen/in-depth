@@ -1,19 +1,78 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title></title>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="http://media.kansascity.com/images/app-icon.png">
-    <link rel="shortcut icon" href="http://media.kansascity.com/images/app-icon.png">
+    {{ partial "head" . }}
   </head>
 
-  <body>
-    <p>This is a test</p>
+  <body class="gray">
+    <div class="flag">
+      <h1 class="flex">In-Depth <small class="sans">v0.8.0</small></h1>
+      <h3 class="sans">a collection of snippets for our special projects</h3>
+      <nav class="horizontal layout">
+        <a href="sample/">Sample</a>
+      </nav>
+    </div>
+
+    <h4 class="category sans">native elements</h4>
+
+    <section class="horizontal wrap layout">
+      <a class="vertical layout" href="/element/figure/">
+        <figure class="flex">
+          <img src="http://www.kansascity.com/sports/mlb/kansas-city-royals/54tza2/picture144934894/alternates/LANDSCAPE_640/RoyalsAngels%200664%204-16-17%20J">
+          <figcaption>Lorem ipsum dolor sit amet.</figcaption>
+        </figure>
+        <div class="desc">
+          <h2>figure</h2>
+          <p>Use the figure element to show a single image in a story body.</p>
+        </div>
+      </a>
+
+      <a class="vertical layout" href="/element/blockquote/">
+        <blockquote class="flex">
+          <q>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate gravida nibh.</q>
+          <small>Anon</small>
+        </blockquote>
+        <div class="desc">
+          <h2>blockquote</h2>
+          <p>Use the blockquote element to create a pull quote.</p>
+        </div>
+      </a>
+
+      <a class="vertical layout" href="/element/aside/">
+        <div class="flex">
+          <aside style="max-width: 150px;">
+            <figure>
+              <img src="http://www.kansascity.com/sports/mlb/kansas-city-royals/54tza2/picture144934894/alternates/LANDSCAPE_320/RoyalsAngels%200664%204-16-17%20J">
+            </figure>
+          </aside>
+          <h3 style="margin-top: 0;">Lorem ipsum</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, justo a mattis ultricies, turpis eros finibus arcu, ut dapibus nulla arcu ut nisi. Nunc odio nulla, porta id metus nec, venenatis.</p>
+        </div>
+        <div class="desc">
+          <h2>aside</h2>
+          <p>Use the aside element to position items to the left or right of the story text.</p>
+        </div>
+      </a>
+    </section>
+
+    <h4 class="category">components</h4>
+
+    <section class="horizontal wrap layout">
+      <div class="wide vertical layout">
+        <thumbnail-stack class="flex">
+          <figure>
+            <img src="http://www.kansascity.com/sports/mlb/kansas-city-royals/54tza2/picture144934894/alternates/LANDSCAPE_320/RoyalsAngels%200664%204-16-17%20J">
+          </figure>
+          <div>
+            <h4>Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum, justo a mattis ultricies, turpis eros finibus arcu, ut dapibus nulla arcu ut nisi. Nunc odio nulla, porta id metus nec, venenatis.</p>
+          </div>
+        </thumbnail-stack>
+        <div class="desc">
+          <h2>thumbnail-stack</h2>
+          <p>Use a series of thumbnail-stack elements to create a grid of related stories.</p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

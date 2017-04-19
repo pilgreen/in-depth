@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lan="en">
+  <head>
+    {{ partial "head" . }}
+  </head>
+
+  <body>
+    <div class="flag pad-bottom horizontal center layout">
+      <a href="/"><svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></a>
+      <div class="flex">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.summary }}
+          <h3>{{.}}</h3>
+        {{ end }}
+      </div>
+    </div>
+
+    <article>
+      {{ .Content }}
+    </article>
+    </div>
+  </body>
+</html>

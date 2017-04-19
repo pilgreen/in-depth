@@ -1,0 +1,47 @@
++++
+date = "2017-04-18T16:30:52-05:00"
+draft = false
+title = "blockquote"
+
++++
+
+<form>
+  <label>Quote</label>
+  <input type="text" name="quote" value="This is the quote">
+
+  <label>Speaker</label>
+  <input type="text" name="speaker" value="Anon">
+</form>
+
+<div class="pad vertical center layout">
+  <button>Generate code</button>
+</div>
+
+<div id="generated" hidden>
+  <div id="preview"></div>
+  <label>Copy this code</label>
+  <textarea id="code" rows="4"></textarea>
+
+<template><blockquote>
+  <q></q>
+  <small></small>
+</blockquote></template>
+</div>
+
+<style>
+  #preview {
+    max-width: 450px;
+  }
+</style>
+
+<script>
+  {{< vars >}}
+  var quote = document.querySelector("input[name=quote]");
+  var speaker = document.querySelector("input[name=speaker]");
+  
+  function _handleClick(e) {
+    t.content.querySelector('q').textContent = quote.value;
+    t.content.querySelector('small').textContent = speaker.value;
+    getCode();
+  }
+</script>

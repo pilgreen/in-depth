@@ -1,9 +1,7 @@
-.PHONY: styles docs
+.PHONY: docs
 
-styles:
-	scss --update src/scss:styles --style compressed
+css:
+	scss --update src/scss:assets/css --style compressed
 
 docs: styles
 	cd src/hugo/ && hugo
-	rsync -r --delete styles docs/styles
-	rsync -r --delete scripts docs/scripts
