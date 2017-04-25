@@ -2,10 +2,9 @@ baseURL = "http://pilgreen.github.io/in-depth/"
 languageCode = "en-us"
 title = "KCStar In-Depth project"
 
-relativeURLs = true
+canonifyURLs = true
 disableRSS = true
 disableSitemap = true
 
-# publishDir = "../../docs"
 staticDir = "../../assets"
 newContentEditor = "vim"
