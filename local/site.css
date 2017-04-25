@@ -1,0 +1,206 @@
+body {
+  font-size: 18px;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.4em;
+  margin: 0;
+}
+
+body.gray {
+  background-color: #efefef;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "McClatchy Slab",Georgia,serif;
+  margin: 0.5em 0 0;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+.flag {
+  padding: 16px 16px 0;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.flag.pad-bottom {
+  padding-bottom: 16px;
+}
+
+.flag h1 {
+  margin: 0;
+}
+
+.flag h1 small {
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+}
+
+.flag h3 {
+  display: block;
+  color: #999;
+  font-weight: normal;
+  margin-top: 0.25rem;
+}
+
+nav {
+  margin-top: 8px;
+  border-top: 1px solid #efefef;
+}
+
+nav > * {
+  display: block;
+  padding: 12px 8px;
+  text-decoration: none;
+  color: orangered;
+}
+
+nav a:first-child {
+  padding-left: 0;
+}
+
+.category {
+  padding: 8px 16px;
+  font-size: 19px;
+  font-weight: normal;
+  color: #999;
+}
+
+.pad {
+  padding: 16px;
+}
+
+section {
+  padding: 4px;
+}
+
+section > div, section > a {
+  margin: 4px;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 1 350px;
+  text-decoration: none;
+  color: inherit;
+}
+
+section > .wide {
+  flex: 0 1 708px;
+}
+
+@media (max-width: 769px) {
+  section > div, section > a {
+    flex-grow: 1;
+  }
+}
+
+figure, blockquote {
+  margin: 0;
+}
+
+.desc {
+  min-height: 6rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.icon {
+  width: 36px;
+  fill: orangered;
+  padding: 0 8px;
+}
+
+article {
+  box-sizing: border-box;
+  max-width: 720px;
+  padding: 16px;
+  margin: 16px auto;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+label small {
+  font-size: 70%;
+  color: #999;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 17px;
+  padding: 4px;
+  border: 1px solid #ddd;
+}
+
+input + label {
+  margin-top: 1rem;
+}
+
+button, .button {
+  display: block;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 200;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#preview {
+  margin: 32px auto;
+}
+
+#code {
+  white-space: nowrap;
+}
+
+pre, code {
+  background-color: khaki;
+  padding: 16px;
+  font-size: 13px;
+}
+
+code {
+  padding: 4px;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset + fieldset {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid orangered;
+}
+
+.light {
+  font-weight: 200;
+  color: #999;
+}
+
+.clear {
+  clear: both;
+}
+
+aside.space > * {
+  margin: 0 0 10px;
+}
+
+@media (min-width: 1200px) {
+  aside {
+    margin: 0 1rem 0 0;
+  }
+}
+

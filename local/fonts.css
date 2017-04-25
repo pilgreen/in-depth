@@ -1,0 +1,41 @@
+/**
+ * Fonts
+ **/
+
+@font-face {
+  font-family: "Lyon";
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/LyonTextWeb-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: "Lyon";
+  font-weight: bold;
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySerif-Demi.woff) format('woff');
+}
+
+@font-face {
+  font-family: "McClatchy Slab";
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySlab-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: "McClatchy Slab";
+  font-weight: bold;
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySlab-Semibold.woff) format('woff');
+}
+
+@font-face {
+  font-family: "McClatchy Sans";
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySans-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: "McClatchy Sans";
+  font-weight: bold;
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySans-Semibold.woff) format('woff');
+}
+
+@font-face {
+  font-family: "McClatchy Sans Cond";
+  src: url(https://pilgreen.github.io/in-depth/docs/fonts/McClatchySansCond-Semibold.woff) format('woff');
+}
