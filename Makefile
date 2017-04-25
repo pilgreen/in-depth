@@ -1,7 +1,7 @@
-.PHONY: docs
-
 css:
 	scss --update src/scss:assets/css --style compressed
 
-docs: css
-	cd src/hugo/ && hugo
+pages: css
+	cd src/hugo/ && hugo 
+	cd src/hugo/public && git add --all && git commit -m "updating pages site"
+	git push origin gh-pages
