@@ -6,6 +6,6 @@ relativeURLs = true
 disableRSS = true
 disableSitemap = true
 
-publishDir = "../../docs"
+# publishDir = "../../docs"
 staticDir = "../../assets"
 newContentEditor = "vim"

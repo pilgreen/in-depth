@@ -5,14 +5,20 @@
     <!-- paywall disabled -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Project Template</title>
+    <meta name="author" content="kcstar-developer">
+
+    <title>in-depth-sample</title>
+
     <link rel="shortcut icon" href="http://www.kansascity.com/static/theme/kansascity/base/ico/favicon.png">
-    <link href="../docs/kansascity.css" rel="stylesheet">
+    <link href="./kansascity.css" rel="stylesheet">
     <link href="../docs/fonts.css" rel="stylesheet">
+    <link href="../css/in-depth.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0-rc.11/webcomponents-lite.js"></script>
+    <script src="../js/story-header.js"></script>
   </head>
 
   <body>
-     
     <header class=" " role="banner">
       <div id="masthead-container">
         <div class="container">
@@ -31,18 +37,19 @@
             <!-- 
             Whenever you paste something into Newsgate, it will fit inside the '[id^="content-body"]' div. That's a CSS method of requesting any elements that have an id property that starts with the phrase 'content-body'. MI and I both use this selector frequently. Newsgate will wrap your content in additional div tags for their own use. The styles that I have written will account for these additional elements. When writing custom CSS, you may need to take them into account.
 
-            Your workflow is up to you, but I recommend downloading this file to your computer,  typing your new elements in your downloaded file using a text editor, and viewing the file in the browser. When you are done, you can copy/paste the relevent code into Newsgate and test there.
+            Your workflow is up to you, but I recommend downloading this file to your computer, typing your new elements in your downloaded file using a text editor, and viewing the file in the browser. When you are done, you can copy/paste the relevent code into Newsgate and test there.
 
             SETUP
             =================
 
             The first thing that you need to do is include the setup files from the media server. This should go at the top of the story for the cleanest look and best user experience. If you are going to use an image at the top of the story and include the story-header component I would recommend putting all three of those in a single mm_link box.
-            -->
 
-            <link rel="stylesheet" href="../css/in-depth.css">
+            Copy the 2 lines below and paste into Newsgate
+            ----------------------------------------------
+
+            <link rel="stylesheet" href="http://media.kansascity.com/livegraphics/0.8.0/assets/css/in-depth.css">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0-rc.11/webcomponents-lite.js"></script>
 
-            <!-- 
             THE FIGURE ELEMENT
             ==================
             
@@ -72,11 +79,17 @@
             ==========================
 
             When we use the sinclair article template the headline, byline, published date and social media aren't included on the page. They are included in the app, so I created a custom element (web component) that can turn itself on and off whether or not the reader is in the app or on the website. The <story-header> element will also create social media icons for you.
+
+            To use the <story-header> element you need to include it's definition once.
+
+            Copy the line below and paste into Newsgate
+            -------------------------------------------
+
+            <script src="http://media.kansascity.com/livegraphics/in-depth/0.8.0/scripts/story-header.js"></script>
+
             -->
 
-            <!-- <script src="http://media.kansascity.com/livegraphics/in&#45;depth/0.7.3/scripts/story&#45;header.js"></script> -->
-            <script src="../js/story-header.js"></script>
-            <story-header force>
+            <story-header>
               <h1>This is a sample headline</h1>
               <address>By First Last <a href="mailto:flast@kcstar.com">flast@kcstar.com</a></address>
             </story-header>

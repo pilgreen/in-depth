@@ -9,7 +9,11 @@ class StoryHeader extends HTMLElement {
    */
 
   get app() {
-    if(this.hasAttribute('force')) return false;
+    // Shortcut for the sample file
+    let author = document.querySelector('meta[name=author]');
+    if(author && author.content == 'kcstar-developer') return false;
+
+    // Regular app check
     return window.location.href.match(/^file/) ? true : false;
   }
 
