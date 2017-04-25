@@ -22,7 +22,7 @@ The aside element allows you to push any content to the left or right of the tex
 
 <aside class="space">
   <figure style="margin-top: 1rem;">
-    <img src="/sample/yordano.jpg">
+    <img src="/img/yordano.jpg">
     <figcaption>Caption for the image can go here</figcaption>
   </figure>
 </aside>
