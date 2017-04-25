@@ -145,6 +145,7 @@ input + label {
 
 button, .button {
   display: block;
+  margin: 0.5rem;
   padding: 0.5rem;
   border: none;
   background-color: #333;
@@ -172,6 +173,16 @@ pre, code {
 
 code {
   padding: 4px;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset + fieldset {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid orangered;
 }
 
 .light {

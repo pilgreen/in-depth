@@ -1,0 +1,97 @@
++++
+date = "2017-04-17T14:45:33-05:00"
+title = "thumbnail-stack"
+summary = "A headline stack."
++++
+
+<form></form>
+
+<div class="pad horizontal center-justified layout">
+  <button id="addButton">Add another</button>
+  <button id="genButton">Generate code</button>
+</div>
+
+<div id="generated" hidden>
+  <div id="preview"></div>
+  <label>Copy this code</label>
+  <textarea id="code" rows="1"></textarea>
+</div>
+
+<template id="itemTemplate">
+  <fieldset>
+    <label>Story URL</label>
+    <input type="text" name="link">
+    <label>Image URL</label>
+    <input type="text" name="image">
+    <label>Markup <small>markdown enabled</small></label>
+    <textarea name="markup" rows="6"></textarea>
+  </fieldset>
+</template>
+
+<template id="previewTemplate">
+  <a class="thumbnail-stack">
+    <figure>
+      <img></img>
+    </figure>
+    <div></div>
+  </a>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+<script>
+  var f = document.querySelector('form');
+  var iTemplate = document.querySelector('#itemTemplate');
+  var pTemplate = document.querySelector('#previewTemplate');
+
+  var addButton = document.querySelector('#addButton');
+  var genButton = document.querySelector('#genButton');
+
+  var generated = document.querySelector('#generated');
+  var preview = document.querySelector('#preview');
+  var code = document.querySelector('#code');
+
+  function removeAllChildren(node) {
+    while(node.hasChildNodes()) {
+      node.removeChild(node.lastChild);
+    }
+  }
+
+  function _handleClick(e) {
+    removeAllChildren(preview);
+    let set = f.querySelectorAll('fieldset');
+
+    for(var s of set) {
+      let link = s.querySelector('input[name=link]');
+      let src = s.querySelector('input[name=image]');
+      let markup = s.querySelector('textarea[name=markup]');
+
+      let clone = document.importNode(pTemplate.content, true);
+      clone.querySelector('img').setAttribute('src', src.value);
+      clone.querySelector('div').innerHTML = marked(markup.value);
+
+      if(link.value) {
+        clone.querySelector('a').setAttribute('href', link.value);
+      }
+
+      preview.appendChild(clone);
+    }
+
+    generated.removeAttribute('hidden');
+    code.value = preview.innerHTML.replace(/\r?\n|\r/g, '').replace(/\s{2,}/g, '');
+  }
+
+  function _handleFocus() {
+    code.select();
+  }
+
+  function _addItem(fieldset) {
+    let clone = document.importNode(iTemplate.content, true);
+    f.appendChild(clone);
+  }
+  
+  addButton.addEventListener("click", _addItem);
+  genButton.addEventListener("click", _handleClick);
+  code.addEventListener("focus", _handleFocus);
+
+  _addItem();
+</script>

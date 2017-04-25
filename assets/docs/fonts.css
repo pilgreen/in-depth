@@ -34,3 +34,8 @@
   font-weight: bold;
   src: url(fonts/McClatchySans-Semibold.woff) format('woff');
 }
+
+@font-face {
+  font-family: "McClatchy Sans Cond";
+  src: url(fonts/McClatchySansCond-Semibold.woff) format('woff');
+}

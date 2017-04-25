@@ -18,9 +18,10 @@ The aside element allows you to push any content to the left or right of the tex
 </aside>
 ```
 
+<h2 class="light">result</h2>
+
 <aside class="space">
-  <h2 class="light">result</h2>
-  <figure>
+  <figure style="margin-top: 1rem;">
     <img src="/sample/yordano.jpg">
     <figcaption>Caption for the image can go here</figcaption>
   </figure>

@@ -3,5 +3,5 @@
 css:
 	scss --update src/scss:assets/css --style compressed
 
-docs: styles
+docs: css
 	cd src/hugo/ && hugo

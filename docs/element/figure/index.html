@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lan="en">
+  <head>
+    <title>figure</title>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="http://media.kansascity.com/images/app-icon.png">
+<link rel="shortcut icon" href="http://media.kansascity.com/images/app-icon.png">
+
+<link rel="stylesheet" href="../../css/in-depth.css">
+<link rel="stylesheet" href="../../docs/fonts.css">
+<link rel="stylesheet" href="../../docs/site.css">
+
+  </head>
+
+  <body>
+    <div class="flag pad-bottom horizontal center layout">
+      <a href="../../"><svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg></a>
+      <div class="flex">
+        <h1>figure</h1>
+        
+          <h3>A single image.</h3>
+        
+      </div>
+    </div>
+
+    <article>
+      <form>
+  <label>Image URL</label>
+  <input type="text" name="image" value="http://nerdist.com/wp-content/uploads/2015/10/ChristopherWalken_Feature_10192015-970x545.jpg">
+
+  <label>Caption</label>
+  <textarea name="content" rows="6">This is a test.</textarea>
+</form>
+
+<div class="pad vertical center layout">
+  <button>Generate code</button>
+</div>
+
+<div id="generated" hidden>
+  <div id="preview"></div>
+  <label>Copy this code</label>
+  <textarea id="code" rows="4"></textarea>
+</div>
+
+<template><figure>
+  <img></img>
+  <figcaption></figcaption>
+</figure></template>
+
+<script>
+  var t = document.querySelector("template");
+  var src = document.querySelector("input[name=image]");
+  var caption = document.querySelector("textarea[name=content]");
+  var button = document.querySelector("button");
+  var generated = document.querySelector("#generated");
+  var preview = document.querySelector("#preview");
+  var code = document.querySelector("#code");
+
+  function _handleClick(e) {
+    t.content.querySelector("img").setAttribute("src", src.value);
+    t.content.querySelector("figcaption").textContent = caption.value;
+    preview.innerHTML = t.innerHTML;
+    code.value = t.innerHTML;
+    generated.removeAttribute("hidden");
+  }
+
+  function _handleFocus(e) {
+    code.select();
+  }
+
+  button.addEventListener("click", _handleClick);
+  code.addEventListener("focus", _handleFocus);
+</script>
+
+    </article>
+    </div>
+  </body>
+</html>
